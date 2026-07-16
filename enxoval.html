@@ -40,23 +40,16 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.14;let
 .wordmark span{color:var(--accent)}
 
 .hero{position:relative;overflow:hidden;padding:2.4rem 0 1.4rem;text-align:center}
-.hero__blob{position:absolute;width:280px;height:280px;filter:blur(8px);opacity:.55;z-index:0}
+.hero .hero__blob{position:absolute;width:280px;height:280px;filter:blur(8px);opacity:.55;z-index:0}
 .b1{top:-120px;right:-110px;background:radial-gradient(circle,var(--amarelo),transparent 70%)}
 .b2{bottom:-130px;left:-120px;background:radial-gradient(circle,var(--rosa),transparent 70%)}
 .hero>*{position:relative;z-index:1}
 .hero h1{font-size:2rem;margin-bottom:.5rem}
 .hero p{color:var(--ink-soft);max-width:480px;margin:0 auto}
 
-/* cupom (opcional) */
-.cupom{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--accent-sf);
-  border:1.5px dashed var(--accent);border-radius:var(--radius-sm);padding:.9rem 1.1rem;margin:1.4rem 20px 0;max-width:var(--maxw)}
-.cupom b{font-family:var(--font-display);color:var(--accent-dk)}
-.cupom small{color:var(--ink-soft);font-size:.8rem;display:block}
-.cupom .btn{background:var(--accent);color:#fff;font-weight:800;padding:.5rem 1rem;border-radius:100px;font-size:.82rem;white-space:nowrap}
-
 /* menu de categorias */
 .menu{position:sticky;top:52px;z-index:30;background:var(--bg);padding:.9rem 0;border-bottom:1px solid var(--line)}
-.menu__track{display:flex;gap:.5rem;overflow-x:auto;padding:0 20px;max-width:var(--maxw);margin:0 auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.menu__track{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;padding:0 20px;max-width:var(--maxw);margin:0 auto}
 .menu__track::-webkit-scrollbar{display:none}
 .mbtn{white-space:nowrap;font-weight:700;font-size:.85rem;padding:.5rem 1rem;border-radius:100px;background:var(--surface);border:1.5px solid var(--line);color:var(--ink-soft);cursor:pointer;transition:all .15s ease}
 .mbtn:hover{border-color:var(--accent)}
@@ -67,7 +60,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.14;let
 .cat{padding:2rem 0 .5rem}
 .cat.hidden{display:none}
 .cat__head{display:flex;align-items:center;gap:.7rem;margin-bottom:.3rem}
-.cat__ic{width:38px;height:38px;border-radius:11px;flex-shrink:0}
+.cat__ic{width:38px;height:38px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.25rem;line-height:1}
 .cat[data-cat="rouparia"] .cat__ic{background:var(--rosa)}
 .cat[data-cat="higiene"] .cat__ic{background:var(--azul)}
 .cat[data-cat="farmacinha"] .cat__ic{background:var(--verde)}
@@ -119,12 +112,6 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.14;let
   <p>O que realmente vale a pena, quanto comprar e onde encontrar — e, com a mesma sinceridade, o que você pode pular. Curadoria de quem cuida de bebês todos os dias.</p>
 </section>
 
-<!-- CUPOM (opcional) — troque ou apague -->
-<div class="cupom">
-  <div><b>[CUPOM10]</b><small>[LOJA] — desconto pra quem vem pelo site da Dra. Letícia</small></div>
-  <a class="btn" href="[LINK_CUPOM]" target="_blank" rel="noopener">Usar cupom</a>
-</div>
-
 <!-- MENU DE CATEGORIAS -->
 <nav class="menu">
   <div class="menu__track" id="menu">
@@ -143,7 +130,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.14;let
 
   <!-- ROUPARIA -->
   <section class="cat" data-cat="rouparia">
-    <div class="cat__head"><span class="cat__ic"></span><h2>Rouparia</h2></div>
+    <div class="cat__head"><span class="cat__ic">👕</span><h2>Rouparia</h2></div>
     <p class="cat__sub">O básico que veste bem sem lotar a gaveta. Bebê cresce rápido — melhor pouco e bom.</p>
     <div class="item">
       <div class="item__body">
@@ -163,7 +150,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.14;let
 
   <!-- HIGIENE -->
   <section class="cat" data-cat="higiene">
-    <div class="cat__head"><span class="cat__ic"></span><h2>Produtos de higiene</h2></div>
+    <div class="cat__head"><span class="cat__ic">🧴</span><h2>Produtos de higiene</h2></div>
     <p class="cat__sub">Pele de bebê é sensível — aqui qualidade importa mais que quantidade.</p>
     <div class="item">
       <div class="item__body">
@@ -183,7 +170,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.14;let
 
   <!-- FARMACINHA -->
   <section class="cat" data-cat="farmacinha">
-    <div class="cat__head"><span class="cat__ic"></span><h2>Farmacinha</h2></div>
+    <div class="cat__head"><span class="cat__ic">🩹</span><h2>Farmacinha</h2></div>
     <p class="cat__sub">O essencial pra ter em casa. Medicação, só com orientação — aqui vão os itens de apoio.</p>
     <div class="item">
       <div class="item__body">
@@ -203,7 +190,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.14;let
 
   <!-- SONO -->
   <section class="cat" data-cat="sono">
-    <div class="cat__head"><span class="cat__ic"></span><h2>Sono</h2></div>
+    <div class="cat__head"><span class="cat__ic">🌙</span><h2>Sono</h2></div>
     <p class="cat__sub">Segurança em primeiro lugar. Menos é mais no berço — e alguns itens ajudam de verdade.</p>
     <div class="item">
       <div class="item__body">
@@ -216,7 +203,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.14;let
 
   <!-- AMAMENTAÇÃO -->
   <section class="cat" data-cat="amamentacao">
-    <div class="cat__head"><span class="cat__ic"></span><h2>Amamentação</h2></div>
+    <div class="cat__head"><span class="cat__ic">🍼</span><h2>Amamentação</h2></div>
     <p class="cat__sub">Os aliados das primeiras semanas — pra tornar a jornada mais leve.</p>
     <div class="item">
       <div class="item__body">
@@ -236,7 +223,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.14;let
 
   <!-- FACILIDADES -->
   <section class="cat" data-cat="facilidades">
-    <div class="cat__head"><span class="cat__ic"></span><h2>Facilidades</h2></div>
+    <div class="cat__head"><span class="cat__ic">🚼</span><h2>Facilidades</h2></div>
     <p class="cat__sub">Não são obrigatórios, mas salvam o dia a dia de quem está exausta.</p>
     <div class="item">
       <div class="item__body">
@@ -249,7 +236,7 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.14;let
 
   <!-- DESNECESSÁRIOS -->
   <section class="cat cat--skip" data-cat="desnecessarios">
-    <div class="cat__head"><span class="cat__ic"></span><h2>Pode pular</h2></div>
+    <div class="cat__head"><span class="cat__ic">🚫</span><h2>Pode pular</h2></div>
     <p class="cat__sub">Com a mesma sinceridade: aqui é onde você economiza. Bonito na foto, pouco útil na vida real.</p>
     <div class="item">
       <div class="item__body">

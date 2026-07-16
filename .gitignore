@@ -1,0 +1,7 @@
+# Config local do Claude Code / harness
+.claude/
+
+# Nunca versionar tokens/segredos
+gh_token.txt
+*.token
+*.pem
