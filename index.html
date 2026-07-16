@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Letícia Freitas · Pediatra</title>
+<meta name="description" content="Cuidado pediátrico que nutre o desenvolvimento de cada criança. Materiais gratuitos e acolhedores — e uma pediatra pra quando o mapa não bastar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   HOSPEDAGEM: renomeie este arquivo para index.html e mantenha
+   na MESMA PASTA: enxoval.html e a foto salva como leticia.jpg
+   Placeholders restantes: depoimentos.
+   ========================================================= */
+:root{
+  --bg:#FCFAF8; --surface:#FFFFFF; --ink:#3B2B34; --ink-soft:#6E5D66;
+  --line:#ECE3DE; --greige:#F3ECE8;
+  --accent:#A64D6E; --accent-dk:#8A3B58; --accent-sf:#F7E7EE;
+  --fase-gestante:#F6EBC2; --fase-recem:#F7D9E3; --fase-bebe:#CFE4F2; --fase-crianca:#D4E8D4;
+  --fase-gestante-dk:#8a7a2e; --fase-recem-dk:#a8506a; --fase-bebe-dk:#3f6f92; --fase-crianca-dk:#4a7d4f;
+  --sem-verde:#6FBF73; --sem-amarelo:#F2C14E; --sem-vermelho:#E5695B; --wa:#25D366;
+  --radius:20px; --radius-sm:12px;
+  --shadow:0 14px 40px -22px rgba(59,43,52,.45); --shadow-sm:0 6px 20px -14px rgba(59,43,52,.5);
+  --maxw:640px; --font-display:"Fraunces",Georgia,serif; --font-body:"Nunito Sans",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:inline-block;margin-bottom:.6rem}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.12;letter-spacing:-.01em}
+h2{font-size:1.8rem;margin-bottom:.5rem}
+h3{font-size:1.15rem}
+.lead{color:var(--ink-soft);font-size:1.02rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:100px;font-weight:800;font-size:.95rem;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;text-align:center;line-height:1.2}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:var(--shadow-sm)}
+.btn-primary:hover{background:var(--accent-dk);transform:translateY(-2px)}
+.btn-primary:disabled{opacity:.6;transform:none;cursor:default}
+.btn-ghost{background:transparent;color:var(--accent);border:1.5px solid var(--accent)}
+.btn-ghost:hover{background:var(--accent-sf)}
+.btn-block{width:100%}
+.btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.topbar{position:sticky;top:0;z-index:40;background:rgba(252,250,248,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar__inner{max-width:var(--maxw);margin:0 auto;padding:.7rem 20px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.wordmark{font-family:var(--font-display);font-weight:600;font-size:1.1rem;letter-spacing:-.01em}
+.wordmark span{color:var(--accent)}
+.topbar .btn{padding:.55rem 1.1rem;font-size:.85rem}
+.hero{position:relative;padding:2.6rem 0 2rem;overflow:hidden}
+.hero__blob{position:absolute;z-index:0;filter:blur(6px);opacity:.7}
+.blob-a{width:320px;height:320px;top:-120px;right:-120px;background:radial-gradient(circle at 30% 30%,var(--fase-recem),transparent 70%)}
+.blob-b{width:300px;height:300px;bottom:-140px;left:-120px;background:radial-gradient(circle at 60% 40%,var(--fase-bebe),transparent 70%)}
+.hero__inner{position:relative;z-index:1;text-align:center}
+.hero__photo{width:118px;height:118px;border-radius:50%;margin:0 auto 1.1rem;background:linear-gradient(135deg,var(--fase-recem),var(--fase-bebe));display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:var(--shadow);border:4px solid #fff;position:relative;overflow:hidden}
+.hero__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.hero h1{font-size:2.15rem;margin-bottom:.35rem}
+.hero__role{font-weight:800;color:var(--accent);letter-spacing:.02em;font-size:.85rem;text-transform:uppercase;margin-bottom:.9rem}
+.hero__role .crm{color:var(--ink-soft);font-weight:600;text-transform:none;letter-spacing:0}
+.hero__pitch{color:var(--ink-soft);font-size:1.08rem;max-width:440px;margin:0 auto 1.5rem}
+.hero__cta{display:flex;flex-direction:column;gap:.7rem;max-width:360px;margin:0 auto}
+.hero__secondary{font-size:.9rem;color:var(--ink-soft)}
+.hero__secondary a{color:var(--accent);font-weight:700;border-bottom:1.5px solid var(--accent-sf)}
+.highlight{margin:1.4rem auto 0;max-width:var(--maxw)}
+.highlight__card{margin:0 20px;background:var(--ink);color:#fff;border-radius:var(--radius);padding:1.1rem 1.3rem;display:flex;align-items:center;gap:1rem;box-shadow:var(--shadow)}
+.highlight__tag{font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--fase-recem);display:block;margin-bottom:.2rem}
+.highlight__card p{font-size:.95rem;line-height:1.35}
+.highlight__card .arrow{margin-left:auto;flex-shrink:0;font-size:1.3rem;color:var(--fase-recem)}
+.section{padding:3rem 0}
+.section--tint{background:var(--greige)}
+.section__head{text-align:center;margin-bottom:1.6rem}
+.section__head .lead{max-width:460px;margin:.3rem auto 0}
+.phases{margin-bottom:1.8rem}
+.phase-track{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.phase-chip{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:.7rem .55rem;border-radius:16px;min-width:74px;background:var(--surface);border:2px solid var(--line);transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease;font-weight:700;font-size:.76rem;color:var(--ink)}
+.phase-chip .dot{width:26px;height:26px;border-radius:50%}
+.phase-chip[data-phase="gestante"] .dot{background:var(--fase-gestante)}
+.phase-chip[data-phase="recem"] .dot{background:var(--fase-recem)}
+.phase-chip[data-phase="bebe"] .dot{background:var(--fase-bebe)}
+.phase-chip[data-phase="crianca"] .dot{background:var(--fase-crianca)}
+.phase-chip:hover{transform:translateY(-2px)}
+.phase-chip.is-active{box-shadow:var(--shadow-sm)}
+.phase-chip[data-phase="gestante"].is-active{border-color:var(--fase-gestante-dk)}
+.phase-chip[data-phase="recem"].is-active{border-color:var(--fase-recem-dk)}
+.phase-chip[data-phase="bebe"].is-active{border-color:var(--fase-bebe-dk)}
+.phase-chip[data-phase="crianca"].is-active{border-color:var(--fase-crianca-dk)}
+.phase-hint{text-align:center;font-size:.82rem;color:var(--ink-soft);margin-top:.8rem;min-height:1.2em;transition:opacity .2s ease}
+.materials{display:grid;gap:1rem}
+.mat{background:var(--surface);border-radius:var(--radius);padding:1.3rem;border:1px solid var(--line);box-shadow:var(--shadow-sm);transition:opacity .25s ease,transform .25s ease,box-shadow .25s ease;position:relative;overflow:hidden}
+.mat.is-dim{opacity:.42}
+.mat__fase{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:100px;display:inline-block;margin-bottom:.7rem}
+.fase-tag-gestante{background:var(--fase-gestante);color:var(--fase-gestante-dk)}
+.fase-tag-recem{background:var(--fase-recem);color:var(--fase-recem-dk)}
+.fase-tag-bebe{background:var(--fase-bebe);color:var(--fase-bebe-dk)}
+.fase-tag-crianca{background:var(--fase-crianca);color:var(--fase-crianca-dk)}
+.mat h3{margin-bottom:.35rem}
+.mat p{color:var(--ink-soft);font-size:.94rem;margin-bottom:1rem}
+.mat .btn{font-size:.9rem;padding:.7rem 1.2rem}
+.mat--feature{border:2px solid var(--accent-sf);background:linear-gradient(180deg,#fff,#fffdfc)}
+.mat--feature::before{content:"MAIS PROCURADO";position:absolute;top:14px;right:-34px;transform:rotate(45deg);background:var(--accent);color:#fff;font-size:.58rem;font-weight:800;letter-spacing:.1em;padding:.25rem 3rem}
+.semaforo{display:flex;gap:.5rem;margin:.2rem 0 1rem}
+.semaforo .s{flex:1;border-radius:10px;padding:.5rem .4rem;text-align:center;font-size:.68rem;font-weight:800;color:#fff;line-height:1.2}
+.s-v{background:var(--sem-verde)}.s-a{background:var(--sem-amarelo);color:#5a4300}.s-r{background:var(--sem-vermelho)}
+.consulta__grid{display:grid;gap:.9rem;margin-bottom:1.4rem}
+.tipo{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:1rem 1.1rem;display:flex;gap:.85rem;align-items:flex-start}
+.tipo .ic{flex-shrink:0;width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:var(--accent-sf);color:var(--accent)}
+.tipo h3{font-size:1rem;margin-bottom:.15rem}
+.tipo p{color:var(--ink-soft);font-size:.88rem}
+.tele-badge{display:inline-block;background:var(--fase-crianca);color:var(--fase-crianca-dk);font-size:.66rem;font-weight:800;padding:.15rem .5rem;border-radius:100px;letter-spacing:.05em;margin-left:.4rem}
+.passos{display:grid;gap:.6rem;margin:1.2rem 0 1.4rem;counter-reset:step}
+.passo{display:flex;gap:.8rem;align-items:flex-start;font-size:.92rem;color:var(--ink-soft)}
+.passo::before{counter-increment:step;content:counter(step);flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;font-family:var(--font-body)}
+.passo b{color:var(--ink)}
+.about{display:grid;gap:1.2rem}
+.about__photo{width:100%;aspect-ratio:4/3;border-radius:var(--radius);background:linear-gradient(135deg,var(--fase-bebe),var(--fase-crianca));display:flex;align-items:center;justify-content:center;color:#fff;position:relative;overflow:hidden}
+.about__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.about__motto{font-family:var(--font-display);font-size:1.25rem;color:var(--accent-dk);line-height:1.35;margin-bottom:.8rem}
+.about p{color:var(--ink-soft);margin-bottom:.8rem}
+.creds{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem}
+.cred{background:var(--surface);border:1px solid var(--line);border-radius:100px;padding:.4rem .8rem;font-size:.8rem;font-weight:700;color:var(--ink)}
+.cred b{color:var(--accent)}
+.deps{display:grid;gap:.9rem}
+.dep{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.2rem}
+.dep__stars{color:var(--sem-amarelo);font-size:.9rem;letter-spacing:.1em;margin-bottom:.5rem}
+.dep p{font-family:var(--font-display);font-size:1.02rem;color:var(--ink);line-height:1.4;margin-bottom:.7rem}
+.dep__who{font-size:.82rem;color:var(--ink-soft);font-weight:700}
+/* Promo enxoval */
+.enxpromo{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem 1.3rem;text-align:center;box-shadow:var(--shadow-sm)}
+.enxpromo .cats{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin:1rem 0 1.3rem}
+.enxpromo .cat{font-size:.74rem;font-weight:700;padding:.35rem .7rem;border-radius:100px;background:var(--greige);color:var(--ink-soft)}
+.enxpromo .cat.skip{background:#f3e0e0;color:#b45}
+.footer{background:var(--ink);color:#e9dfe4;padding:2.4rem 0 6rem;text-align:center}
+.footer .wordmark{color:#fff;font-size:1.3rem;display:inline-block;margin-bottom:.6rem}
+.footer .wordmark span{color:var(--fase-recem)}
+.footer p{font-size:.85rem;color:#c9b9c1;max-width:420px;margin:0 auto .5rem}
+.footer .ig{display:inline-flex;align-items:center;gap:.5rem;margin:.8rem 0;font-weight:700;color:#fff}
+.footer .aviso{font-size:.72rem;color:#9d8b93;margin-top:1.2rem;line-height:1.5}
+.wa-float{position:fixed;bottom:18px;right:18px;z-index:50;background:var(--wa);color:#fff;border-radius:100px;padding:.85rem 1.2rem;display:flex;align-items:center;gap:.5rem;font-weight:800;font-size:.9rem;box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:transform .2s ease}
+.wa-float:hover{transform:scale(1.05)}
+.wa-float svg{width:20px;height:20px}
+.modal{position:fixed;inset:0;z-index:60;display:none;align-items:flex-end;justify-content:center}
+.modal.open{display:flex}
+.modal__bg{position:absolute;inset:0;background:rgba(59,43,52,.5);backdrop-filter:blur(2px)}
+.modal__card{position:relative;background:var(--surface);width:100%;max-width:var(--maxw);border-radius:24px 24px 0 0;padding:1.6rem 20px 2rem;box-shadow:var(--shadow);animation:slideUp .3s ease}
+@keyframes slideUp{from{transform:translateY(30px);opacity:.6}to{transform:translateY(0);opacity:1}}
+.modal__close{position:absolute;top:1rem;right:1rem;width:34px;height:34px;border-radius:50%;background:var(--greige);color:var(--ink);font-size:1.1rem;font-weight:700}
+.modal__eyebrow{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.modal h3{font-size:1.4rem;margin:.3rem 0 .4rem}
+.modal p{color:var(--ink-soft);font-size:.92rem;margin-bottom:1.1rem}
+.field{margin-bottom:.8rem}
+.field label{display:block;font-size:.82rem;font-weight:700;margin-bottom:.3rem}
+.field input{width:100%;padding:.8rem 1rem;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:1rem;background:var(--bg);color:var(--ink)}
+.field input:focus{outline:none;border-color:var(--accent)}
+.modal__ok{text-align:center;padding:1rem 0}
+.modal__ok .check{width:60px;height:60px;border-radius:50%;background:var(--fase-crianca);color:var(--fase-crianca-dk);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1rem;font-weight:800}
+.modal__ok.err .check{background:#f3e0e0;color:#b45}
+.consent{font-size:.72rem;color:var(--ink-soft);margin-top:.6rem;text-align:center}
+.hp{position:absolute;left:-9999px;top:-9999px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(min-width:680px){
+  h2{font-size:2.1rem}.hero h1{font-size:2.6rem}
+  .materials{grid-template-columns:1fr 1fr}.mat--feature{grid-column:1 / -1}
+  .consulta__grid{grid-template-columns:1fr 1fr}.deps{grid-template-columns:1fr 1fr}
+  .about{grid-template-columns:1fr 1fr;align-items:center}
+  .modal{align-items:center}.modal__card{border-radius:24px;margin:0 20px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a href="#topo" class="wordmark">Dra. Letícia Freitas<span>.</span></a>
+    <a href="#consulta" class="btn btn-primary">Agendar</a>
+  </div>
+</header>
+
+<section class="hero" id="topo">
+  <div class="hero__blob blob-a"></div>
+  <div class="hero__blob blob-b"></div>
+  <div class="wrap hero__inner reveal">
+    <div class="hero__photo">
+      <img src="https://lh3.googleusercontent.com/d/1kPuMFxXbAQNuMjr0hGpBNyBFxYcXf2BY" alt="Dra. Letícia Freitas" onerror="this.remove()">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+    </div>
+    <h1>Cuidar do seu filho começa com informação boa.</h1>
+    <div class="hero__role">Dra. Letícia Freitas · Pediatra <span class="crm">CRM 78123</span></div>
+    <p class="hero__pitch">Cuidado pediátrico que nutre o desenvolvimento de cada criança — com materiais gratuitos e acolhedores pra cada fase, e uma pediatra pra quando o mapa não bastar.</p>
+    <div class="hero__cta">
+      <button class="btn btn-primary btn-block" data-material="Guia de febre" data-open-modal>Quero o guia de febre — grátis</button>
+      <p class="hero__secondary">Precisa de consulta agora? <a href="#consulta">Ver como funciona →</a></p>
+    </div>
+  </div>
+</section>
+
+<div class="highlight reveal">
+  <div class="highlight__card">
+    <div>
+      <span class="highlight__tag">Em destaque</span>
+      <p>Novo por aqui? Comece pelo guia que mais tranquiliza as mães: <b>febre sem pânico</b>.</p>
+    </div>
+    <a href="#materiais" class="arrow" aria-label="Ir para materiais">↓</a>
+  </div>
+</div>
+
+<section class="section" id="materiais">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="eyebrow">Materiais gratuitos</span>
+      <h2>Pra cada fase, o que você precisa</h2>
+      <p class="lead">Escolha a fase do seu filho e veja o que separei pra você.</p>
+    </div>
+
+    <div class="phases reveal">
+      <div class="phase-track" role="group" aria-label="Escolha a fase do seu filho">
+        <button class="phase-chip" data-phase="gestante"><span class="dot"></span>Gestante</button>
+        <button class="phase-chip" data-phase="recem"><span class="dot"></span>Recém-nascido</button>
+        <button class="phase-chip" data-phase="bebe"><span class="dot"></span>Bebê 6m+</button>
+        <button class="phase-chip" data-phase="crianca"><span class="dot"></span>Criança 1a+</button>
+      </div>
+      <p class="phase-hint" id="phaseHint">Toque numa fase para destacar os materiais certos.</p>
+    </div>
+
+    <div class="materials">
+      <article class="mat mat--feature reveal" data-phases="recem bebe crianca">
+        <span class="mat__fase fase-tag-crianca">Recém-nascido · Bebê · Criança</span>
+        <h3>Febre no seu filho: o guia que acalma antes de assustar</h3>
+        <div class="semaforo" aria-hidden="true">
+          <div class="s s-v">CUIDO<br>EM CASA</div>
+          <div class="s s-a">FALO COM<br>A PEDIATRA</div>
+          <div class="s s-r">VOU AO<br>PS AGORA</div>
+        </div>
+        <p>Um mapa em 3 cores pra você saber, no susto, o que fazer — em casa, comigo, ou correndo pro pronto-socorro.</p>
+        <button class="btn btn-primary" data-material="Guia de febre" data-open-modal>Receber o guia grátis</button>
+      </article>
+
+      <article class="mat reveal" data-phases="recem">
+        <span class="mat__fase fase-tag-recem">Recém-nascido</span>
+        <h3>Amamentação sem sofrimento</h3>
+        <p>Pega, dor, "meu leite é suficiente?". O guia das primeiras semanas, sem culpa e sem achismo.</p>
+        <button class="btn btn-ghost" data-material="Guia de amamentação" data-open-modal>Receber o guia grátis</button>
+      </article>
+
+      <article class="mat reveal" data-phases="recem bebe">
+        <span class="mat__fase fase-tag-bebe">Recém-nascido · Bebê</span>
+        <h3>Playlist pra acalmar o neném</h3>
+        <p>Músicas escolhidas pra ninar, regular o ritmo e trazer calma na hora do choro. Salva e usa hoje à noite.</p>
+        <a class="btn btn-ghost" href="https://open.spotify.com/playlist/5VUrbrnIVP5OhD6yaRMiCi?si=ZexEXRTRQ8WPHR_US8IYgw&utm_source=copy-link&pi=_9VR4bYLRtOFp" target="_blank" rel="noopener">Abrir a playlist →</a>
+      </article>
+
+      <article class="mat reveal" data-phases="bebe crianca">
+        <span class="mat__fase fase-tag-crianca">Bebê · Criança</span>
+        <h3>Baralho de atividades pra desenvolver brincando</h3>
+        <p>Cartas de estímulos por semana pra acompanhar o desenvolvimento do seu filho no dia a dia.</p>
+        <a class="btn btn-ghost" href="https://vinkli.com.br" target="_blank" rel="noopener">Conhecer o Vinki →</a>
+      </article>
+
+      <article class="mat reveal" data-phases="gestante">
+        <span class="mat__fase fase-tag-gestante">Gestante</span>
+        <h3>Lista de enxoval honesta</h3>
+        <p>O que realmente vale a pena, o que é bom custo-benefício e o que é só marketing. Organizada por categoria.</p>
+        <a class="btn btn-ghost" href="enxoval.html">Ver a lista completa →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tint" id="consulta">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="eyebrow">Consultas</span>
+      <h2>Quando o mapa não bastar, estou aqui</h2>
+      <p class="lead">Atendimento presencial em Belo Horizonte e por vídeo, de onde você estiver no Brasil.</p>
+    </div>
+
+    <div class="consulta__grid reveal">
+      <div class="tipo">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+        <div><h3>Teleconsulta <span class="tele-badge">DE ONDE VOCÊ ESTIVER</span></h3><p>Do sofá de casa, sem sair com a criança febril no colo. Prática pra dúvidas e acompanhamento.</p></div>
+      </div>
+      <div class="tipo">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-5-7-11a7 7 0 0114 0c0 6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div><h3>Consulta presencial</h3><p>Puericultura e acompanhamento do crescimento em Belo Horizonte – MG.</p></div>
+      </div>
+    </div>
+
+    <div class="passos reveal">
+      <div class="passo"><span><b>Você fala comigo</b> pelo WhatsApp e a gente escolhe o melhor horário.</span></div>
+      <div class="passo"><span><b>A consulta acontece</b> — por vídeo ou no consultório, com calma e sem pressa.</span></div>
+      <div class="passo"><span><b>Você sai com um plano claro</b> e um canal aberto pra dúvidas depois.</span></div>
+    </div>
+
+    <div class="reveal" style="display:flex;flex-direction:column;gap:.7rem;max-width:400px;margin:0 auto">
+      <a class="btn btn-primary btn-block" href="https://wa.me/5531999188888?text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20consultas%20com%20a%20Dra.%20Let%C3%ADcia" target="_blank" rel="noopener">Agendar consulta</a>
+      <a class="btn btn-ghost btn-block" href="https://wa.me/5531999188888?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida" target="_blank" rel="noopener">Tirar dúvida no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sobre">
+  <div class="wrap">
+    <div class="about">
+      <div class="about__photo reveal">
+        <img src="https://lh3.googleusercontent.com/d/1kPuMFxXbAQNuMjr0hGpBNyBFxYcXf2BY" alt="Dra. Letícia Freitas" onerror="this.remove()">
+        <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Quem é a Dra. Letícia</span>
+        <p class="about__motto">Cuidado pediátrico que nutre o desenvolvimento de cada criança.</p>
+        <p>Meu jeito de cuidar é sem julgamento, com ciência e com colo — porque informação boa acalma mais do que qualquer remédio, e mãe cansada não precisa de mais culpa, precisa de alguém de confiança do lado.</p>
+        <div class="creds">
+          <span class="cred"><b>CRM</b> 78123</span>
+          <span class="cred">Especialista em Pediatria</span>
+          <span class="cred">Belo Horizonte · e online</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tint" id="depoimentos">
+  <div class="wrap">
+    <div class="section__head reveal">
+      <span class="eyebrow">Famílias que já cuido</span>
+      <h2>O que as mães dizem</h2>
+    </div>
+    <div class="deps">
+      <div class="dep reveal">
+        <div class="dep__stars">★★★★★</div>
+        <p>"[DEPOIMENTO 1 — de preferência sobre um momento de susto que a Letícia acalmou.]"</p>
+        <div class="dep__who">— [Nome], mãe do [Bebê]</div>
+      </div>
+      <div class="dep reveal">
+        <div class="dep__stars">★★★★★</div>
+        <p>"[DEPOIMENTO 2 — sobre teleconsulta / acolhimento / clareza.]"</p>
+        <div class="dep__who">— [Nome], mãe da [Bebê]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="enxoval">
+  <div class="wrap">
+    <div class="enxpromo reveal">
+      <span class="eyebrow">Enxoval inteligente</span>
+      <h2>O que vale a pena (e o que não)</h2>
+      <p class="lead" style="max-width:440px;margin:.3rem auto 0">Minha curadoria honesta, organizada por categoria. Se não uso ou não indico, eu digo.</p>
+      <div class="cats">
+        <span class="cat">Rouparia</span>
+        <span class="cat">Higiene</span>
+        <span class="cat">Farmacinha</span>
+        <span class="cat">Sono</span>
+        <span class="cat">Amamentação</span>
+        <span class="cat">Facilidades</span>
+        <span class="cat skip">Desnecessários</span>
+      </div>
+      <a class="btn btn-primary" href="enxoval.html">Ver a lista completa</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <a href="#topo" class="wordmark">Dra. Letícia Freitas<span>.</span></a>
+    <p>Cuidado pediátrico que nutre o desenvolvimento de cada criança.</p>
+    <a class="ig" href="https://www.instagram.com/leticiafreitaspediatra/" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      @leticiafreitaspediatra
+    </a>
+    <p class="aviso">Os materiais e conteúdos deste site têm caráter informativo e não substituem a consulta, o diagnóstico ou o tratamento individualizado por um profissional de saúde. Em caso de emergência, procure atendimento imediato. · Dra. Letícia Freitas — CRM 78123</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5531999188888?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Dra.%20Let%C3%ADcia" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm5.8 14.2c-.24.68-1.4 1.3-1.94 1.34-.5.04-1.13.06-1.83-.11a8.4 8.4 0 01-1.66-.62c-2.92-1.26-4.83-4.2-4.98-4.4-.15-.2-1.2-1.6-1.2-3.05s.76-2.16 1.03-2.46c.27-.3.59-.37.79-.37h.57c.18 0 .43-.07.67.51.24.6.83 2.05.9 2.2.07.15.12.32.02.52-.1.2-.15.32-.3.5l-.44.51c-.15.15-.3.31-.13.6.17.3.75 1.23 1.6 2 1.1.98 2.03 1.28 2.32 1.43.3.15.47.12.64-.07.17-.2.73-.86.93-1.15.2-.3.4-.25.67-.15.27.1 1.72.81 2 .96.3.15.5.22.56.35.07.12.07.72-.17 1.4z"/></svg>
+  Falar comigo
+</a>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal__bg" data-close-modal></div>
+  <div class="modal__card">
+    <button class="modal__close" data-close-modal aria-label="Fechar">✕</button>
+    <div id="modalForm">
+      <span class="modal__eyebrow">Material gratuito</span>
+      <h3 id="modalTitle">Receber o guia</h3>
+      <p id="modalDesc">Deixa seu contato que eu te mando agora, sem custo.</p>
+      <div class="field"><label for="nome">Seu nome</label><input type="text" id="nome" placeholder="Como posso te chamar?" autocomplete="given-name"></div>
+      <div class="field"><label for="contato">E-mail ou WhatsApp</label><input type="text" id="contato" placeholder="Pra onde eu envio?" autocomplete="email"></div>
+      <input type="text" id="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary btn-block" id="submitLead">Me enviar agora</button>
+      <p class="consent">Sem spam. Só conteúdo bom pra cuidar do seu filho. Você pode sair quando quiser.</p>
+    </div>
+    <div id="modalOk" class="modal__ok" style="display:none">
+      <div class="check">✓</div>
+      <h3 id="okTitle">Prontinho! 💛</h3>
+      <p id="okMsg">Já recebi seu contato. Enquanto isso, dá uma olhada nos outros materiais aqui do site.</p>
+      <button class="btn btn-ghost" data-close-modal>Voltar ao site</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var LEAD_ENDPOINT = "https://formsubmit.co/ajax/let.silveira.freitas@gmail.com";
+  var chips = document.querySelectorAll('.phase-chip');
+  var mats  = document.querySelectorAll('.mat');
+  var hint  = document.getElementById('phaseHint');
+  var hints = {
+    gestante:'Fase de montar o ninho — vamos comprar bem, sem exagero.',
+    recem:   'As primeiras semanas: sono trocado, muito colo e algumas dúvidas. Tô aqui.',
+    bebe:    'Descobertas, sono mudando e muita brincadeira que também é estímulo.',
+    crianca: 'Fase das infecções e febres — e das mil perguntas. Respira, tem mapa.'
+  };
+  var activePhase = null;
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var phase = chip.getAttribute('data-phase');
+      if(activePhase === phase){
+        activePhase = null;
+        chips.forEach(function(c){c.classList.remove('is-active')});
+        mats.forEach(function(m){m.classList.remove('is-dim')});
+        hint.textContent = 'Toque numa fase para destacar os materiais certos.';
+        return;
+      }
+      activePhase = phase;
+      chips.forEach(function(c){c.classList.toggle('is-active', c===chip)});
+      mats.forEach(function(m){
+        var has = (m.getAttribute('data-phases')||'').indexOf(phase) > -1;
+        m.classList.toggle('is-dim', !has);
+      });
+      hint.textContent = hints[phase] || '';
+    });
+  });
+
+  var modal   = document.getElementById('modal');
+  var formBox = document.getElementById('modalForm');
+  var okBox   = document.getElementById('modalOk');
+  var title   = document.getElementById('modalTitle');
+  var desc    = document.getElementById('modalDesc');
+  var okTitle = document.getElementById('okTitle');
+  var okMsg   = document.getElementById('okMsg');
+  var submitBtn = document.getElementById('submitLead');
+  var currentMaterial = 'material';
+  function openModal(material){
+    currentMaterial = material;
+    title.textContent = 'Receber: ' + material;
+    desc.textContent  = 'Deixa seu contato que eu te mando ' + material.toLowerCase() + ' agora, sem custo.';
+    formBox.style.display = 'block'; okBox.style.display = 'none'; okBox.classList.remove('err');
+    submitBtn.disabled = false; submitBtn.textContent = 'Me enviar agora';
+    modal.classList.add('open'); document.body.style.overflow = 'hidden';
+    setTimeout(function(){document.getElementById('nome').focus()}, 100);
+  }
+  function closeModal(){ modal.classList.remove('open'); document.body.style.overflow = ''; }
+  document.querySelectorAll('[data-open-modal]').forEach(function(btn){
+    btn.addEventListener('click', function(){ openModal(btn.getAttribute('data-material') || 'material'); });
+  });
+  document.querySelectorAll('[data-close-modal]').forEach(function(el){ el.addEventListener('click', closeModal); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+
+  function showSuccess(nome){
+    formBox.style.display='none'; okBox.classList.remove('err'); okBox.style.display='block';
+    okTitle.textContent='Prontinho! 💛';
+    okMsg.textContent='Prontinho, ' + nome.split(' ')[0] + '! Já recebi seu contato e te mando o material. Enquanto isso, dá uma olhada nos outros aqui do site.';
+  }
+  function showError(){
+    formBox.style.display='none'; okBox.classList.add('err'); okBox.style.display='block';
+    okTitle.textContent='Deu um probleminha no envio';
+    okMsg.innerHTML='Não consegui registrar seu contato agora. Me chama no WhatsApp que eu te mando o material na hora 💛<br><br><a class="btn btn-primary" href="https://wa.me/5531999188888?text=Ol%C3%A1!%20Quero%20receber%20o%20material%20do%20site" target="_blank" rel="noopener">Falar no WhatsApp</a>';
+  }
+  submitBtn.addEventListener('click', function(){
+    var nome=document.getElementById('nome').value.trim();
+    var contato=document.getElementById('contato').value.trim();
+    if(document.getElementById('_honey').value){ closeModal(); return; }
+    if(!nome || !contato){ alert('Preenche seu nome e um contato pra eu conseguir te enviar 💛'); return; }
+    submitBtn.disabled=true; submitBtn.textContent='Enviando...';
+    fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({Nome:nome,Contato:contato,"Material solicitado":currentMaterial,_subject:'Novo lead do hotsite — '+currentMaterial,_template:'table'})})
+    .then(function(r){ if(!r.ok) throw new Error('http'); return r.json(); })
+    .then(function(){ showSuccess(nome); })
+    .catch(function(){ showError(); });
+  });
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+})();
+</script>
+</body>
+</html>
