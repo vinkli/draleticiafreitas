@@ -10,7 +10,7 @@
 <meta name="geo.region" content="BR-MG">
 <meta name="geo.placename" content="Belo Horizonte">
 <meta name="theme-color" content="#A64D6E">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="https://draleticiafreitas.com.br/">
 
@@ -108,6 +108,17 @@
    "publisher":{"@id":"https://draleticiafreitas.com.br/#leticia"}
   },
   {
+   "@type":"MedicalWebPage",
+   "@id":"https://draleticiafreitas.com.br/#webpage",
+   "url":"https://draleticiafreitas.com.br/",
+   "name":"Dra. Letícia Freitas — Pediatra em Belo Horizonte (MG)",
+   "inLanguage":"pt-BR",
+   "isPartOf":{"@id":"https://draleticiafreitas.com.br/#website"},
+   "about":{"@id":"https://draleticiafreitas.com.br/#leticia"},
+   "lastReviewed":"2026-07-16",
+   "reviewedBy":{"@type":"Person","name":"Dra. Letícia Freitas","identifier":{"@type":"PropertyValue","propertyID":"CRM-MG","value":"78123"}}
+  },
+  {
    "@type":"FAQPage",
    "@id":"https://draleticiafreitas.com.br/#faq",
    "mainEntity":[
@@ -122,9 +133,7 @@
 }
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts.css">
 <style>
 /* =========================================================
    HOSPEDAGEM: renomeie este arquivo para index.html e mantenha
@@ -464,7 +473,7 @@ h3{font-size:1.15rem}
   <div class="wrap">
     <div class="section__head reveal">
       <span class="eyebrow">Perguntas frequentes</span>
-      <h2>Dúvidas sobre a consulta pediátrica</h2>
+      <h2>Dúvidas sobre a consulta com pediatra em Belo Horizonte</h2>
       <p class="lead">Atendimento presencial em Belo Horizonte e teleconsulta para todo o Brasil.</p>
     </div>
     <div class="faq reveal">
@@ -523,6 +532,7 @@ h3{font-size:1.15rem}
       @leticiafreitaspediatra
     </a>
     <p><a href="privacidade.html" style="color:#fff;font-weight:700">Política de Privacidade</a></p>
+    <p class="aviso">Conteúdo revisado pela Dra. Letícia Freitas · Pediatra em Belo Horizonte · CRM-MG 78.123 · RQE 57.967 · Atualizado em julho de 2026.</p>
     <p class="aviso">Os materiais e conteúdos deste site têm caráter informativo e não substituem a consulta, o diagnóstico ou o tratamento individualizado por um profissional de saúde. Em caso de emergência, procure atendimento imediato. · Dra. Letícia Freitas — CRM 78123</p>
   </div>
 </footer>
@@ -600,7 +610,9 @@ h3{font-size:1.15rem}
   var okMsg   = document.getElementById('okMsg');
   var submitBtn = document.getElementById('submitLead');
   var currentMaterial = 'material';
+  var lastFocused = null;
   function openModal(material){
+    lastFocused = document.activeElement;
     currentMaterial = material;
     title.textContent = 'Receber: ' + material;
     desc.textContent  = 'Deixa seu contato que eu te mando ' + material.toLowerCase() + ' agora, sem custo.';
@@ -609,12 +621,24 @@ h3{font-size:1.15rem}
     modal.classList.add('open'); document.body.style.overflow = 'hidden';
     setTimeout(function(){document.getElementById('nome').focus()}, 100);
   }
-  function closeModal(){ modal.classList.remove('open'); document.body.style.overflow = ''; }
+  function closeModal(){ modal.classList.remove('open'); document.body.style.overflow = ''; if(lastFocused && lastFocused.focus){ lastFocused.focus(); } }
   document.querySelectorAll('[data-open-modal]').forEach(function(btn){
     btn.addEventListener('click', function(){ openModal(btn.getAttribute('data-material') || 'material'); });
   });
   document.querySelectorAll('[data-close-modal]').forEach(function(el){ el.addEventListener('click', closeModal); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape'){ closeModal(); return; }
+    if(e.key==='Tab' && modal.classList.contains('open')){
+      var f = Array.prototype.filter.call(
+        modal.querySelectorAll('a[href], button:not([disabled]), input:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])'),
+        function(el){ return el.offsetParent !== null; }
+      );
+      if(!f.length) return;
+      var first = f[0], last = f[f.length-1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
 
   function showSuccess(nome){
     formBox.style.display='none'; okBox.classList.remove('err'); okBox.style.display='block';
