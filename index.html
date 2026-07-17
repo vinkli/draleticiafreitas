@@ -522,6 +522,7 @@ h3{font-size:1.15rem}
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
       @leticiafreitaspediatra
     </a>
+    <p><a href="privacidade.html" style="color:#fff;font-weight:700">Política de Privacidade</a></p>
     <p class="aviso">Os materiais e conteúdos deste site têm caráter informativo e não substituem a consulta, o diagnóstico ou o tratamento individualizado por um profissional de saúde. Em caso de emergência, procure atendimento imediato. · Dra. Letícia Freitas — CRM 78123</p>
   </div>
 </footer>
@@ -544,7 +545,7 @@ h3{font-size:1.15rem}
       <div class="field"><label for="whats">Seu WhatsApp</label><input type="tel" id="whats" placeholder="(31) 90000-0000" autocomplete="tel" inputmode="tel"></div>
       <input type="text" id="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button class="btn btn-primary btn-block" id="submitLead">Me enviar agora</button>
-      <p class="consent">Peço e-mail e WhatsApp só para te enviar o material e tirar dúvidas — sem spam, e você pode sair quando quiser.</p>
+      <p class="consent">Peço e-mail e WhatsApp só para te enviar o material e tirar dúvidas — sem spam, e você pode sair quando quiser. Ao enviar, você concorda com a <a href="privacidade.html" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">Política de Privacidade</a>.</p>
     </div>
     <div id="modalOk" class="modal__ok" style="display:none">
       <div class="check">✓</div>
@@ -617,11 +618,13 @@ h3{font-size:1.15rem}
 
   function showSuccess(nome){
     formBox.style.display='none'; okBox.classList.remove('err'); okBox.style.display='block';
+    okBox.querySelector('.check').textContent='✓';
     okTitle.textContent='Prontinho! 💛';
     okMsg.textContent='Prontinho, ' + nome.split(' ')[0] + '! Já recebi seu contato e te mando o material. Enquanto isso, dá uma olhada nos outros aqui do site.';
   }
   function showError(){
     formBox.style.display='none'; okBox.classList.add('err'); okBox.style.display='block';
+    okBox.querySelector('.check').textContent='✕';
     okTitle.textContent='Deu um probleminha no envio';
     okMsg.innerHTML='Não consegui registrar seu contato agora. Me chama no WhatsApp que eu te mando o material na hora 💛<br><br><a class="btn btn-primary" href="https://wa.me/5531999188888?text=Ol%C3%A1!%20Quero%20receber%20o%20material%20do%20site" target="_blank" rel="noopener">Falar no WhatsApp</a>';
   }
