@@ -10,6 +10,8 @@
 <meta name="geo.region" content="BR-MG">
 <meta name="geo.placename" content="Belo Horizonte">
 <meta name="theme-color" content="#A64D6E">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="https://draleticiafreitas.com.br/">
 
 <!-- Open Graph -->
@@ -62,7 +64,7 @@
      {"@type":"MedicalOrganization","name":"Sociedade Brasileira de Pediatria (SBP)"},
      {"@type":"MedicalOrganization","name":"Sociedade Mineira de Pediatria (SMP-MG)"}
    ],
-   "sameAs":["https://www.instagram.com/leticiafreitaspediatra/"],
+   "sameAs":["https://www.instagram.com/leticiafreitaspediatra/","https://share.google/NTFmcsJhcxidhCLJy"],
    "employee":{"@id":"https://draleticiafreitas.com.br/#leticia"}
   },
   {
@@ -95,7 +97,7 @@
      {"@type":"EducationalOccupationalCredential","credentialCategory":"Certificação","name":"Instrutora do Programa de Reanimação Neonatal (PRN) da SBP"}
    ],
    "knowsAbout":["Pediatria","Puericultura","Desenvolvimento infantil","Aleitamento materno","Reanimação neonatal","Suplementação pediátrica","Saúde da criança"],
-   "sameAs":["https://www.instagram.com/leticiafreitaspediatra/"]
+   "sameAs":["https://www.instagram.com/leticiafreitaspediatra/","https://share.google/NTFmcsJhcxidhCLJy"]
   },
   {
    "@type":"WebSite",
@@ -314,7 +316,7 @@ h3{font-size:1.15rem}
   <div class="hero__blob blob-b"></div>
   <div class="wrap hero__inner reveal">
     <div class="hero__photo">
-      <img src="leticia.jpg" width="118" height="118" alt="Dra. Letícia Freitas, pediatra em Belo Horizonte" onerror="this.remove()">
+      <img src="avatar-sm.jpg" width="118" height="118" alt="Dra. Letícia Freitas, pediatra em Belo Horizonte" onerror="this.remove()">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
     </div>
     <h1>Cuidar do seu filho começa com informação boa.</h1>
@@ -538,10 +540,11 @@ h3{font-size:1.15rem}
       <h3 id="modalTitle">Receber o guia</h3>
       <p id="modalDesc">Deixa seu contato que eu te mando agora, sem custo.</p>
       <div class="field"><label for="nome">Seu nome</label><input type="text" id="nome" placeholder="Como posso te chamar?" autocomplete="given-name"></div>
-      <div class="field"><label for="contato">E-mail ou WhatsApp</label><input type="text" id="contato" placeholder="Pra onde eu envio?" autocomplete="email"></div>
+      <div class="field"><label for="email">Seu e-mail</label><input type="email" id="email" placeholder="nome@email.com" autocomplete="email" inputmode="email"></div>
+      <div class="field"><label for="whats">Seu WhatsApp</label><input type="tel" id="whats" placeholder="(31) 90000-0000" autocomplete="tel" inputmode="tel"></div>
       <input type="text" id="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button class="btn btn-primary btn-block" id="submitLead">Me enviar agora</button>
-      <p class="consent">Sem spam. Só conteúdo bom pra cuidar do seu filho. Você pode sair quando quiser.</p>
+      <p class="consent">Peço e-mail e WhatsApp só para te enviar o material e tirar dúvidas — sem spam, e você pode sair quando quiser.</p>
     </div>
     <div id="modalOk" class="modal__ok" style="display:none">
       <div class="check">✓</div>
@@ -555,6 +558,7 @@ h3{font-size:1.15rem}
 <script>
 (function(){
   "use strict";
+  // Para ESCONDER o e-mail: ative o form no FormSubmit e troque pelo alias aleatorio, ex.: "https://formsubmit.co/ajax/xxxxxxxxxxxxxxxx"
   var LEAD_ENDPOINT = "https://formsubmit.co/ajax/let.silveira.freitas@gmail.com";
   var chips = document.querySelectorAll('.phase-chip');
   var mats  = document.querySelectorAll('.mat');
@@ -623,14 +627,16 @@ h3{font-size:1.15rem}
   }
   submitBtn.addEventListener('click', function(){
     var nome=document.getElementById('nome').value.trim();
-    var contato=document.getElementById('contato').value.trim();
+    var email=document.getElementById('email').value.trim();
+    var whats=document.getElementById('whats').value.trim();
     if(document.getElementById('_honey').value){ closeModal(); return; }
-    if(!nome || !contato){ alert('Preenche seu nome e um contato pra eu conseguir te enviar 💛'); return; }
+    if(!nome || !email || !whats){ alert('Preenche seu nome, e-mail e WhatsApp pra eu conseguir te enviar 💛'); return; }
+    if(email.indexOf('@')<1){ alert('Confere seu e-mail, parece incompleto 💛'); return; }
     submitBtn.disabled=true; submitBtn.textContent='Enviando...';
     fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({Nome:nome,Contato:contato,"Material solicitado":currentMaterial,_subject:'Novo lead do hotsite — '+currentMaterial,_template:'table'})})
-    .then(function(r){ if(!r.ok) throw new Error('http'); return r.json(); })
-    .then(function(){ showSuccess(nome); })
+      body:JSON.stringify({Nome:nome,"E-mail":email,WhatsApp:whats,"Material solicitado":currentMaterial,_subject:'Novo lead do hotsite — '+currentMaterial,_template:'table'})})
+    .then(function(r){ return r.json().then(function(j){return {ok:r.ok,j:j};}, function(){return {ok:r.ok,j:{}};}); })
+    .then(function(res){ if(res.ok && String(res.j.success)!=='false'){ showSuccess(nome); } else { showError(); } })
     .catch(function(){ showError(); });
   });
 
