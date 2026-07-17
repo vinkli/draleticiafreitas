@@ -13,4 +13,4 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-Sitemap: https://draleticiafreitas.com.br/sitemap.xml
+Sitemap: https://www.draleticiafreitas.com.br/sitemap.xml
