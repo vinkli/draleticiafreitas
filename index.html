@@ -661,7 +661,7 @@ h3{font-size:1.15rem}
     if(email.indexOf('@')<1){ alert('Confere seu e-mail, parece incompleto 💛'); return; }
     submitBtn.disabled=true; submitBtn.textContent='Enviando...';
     fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({Nome:nome,"E-mail":email,WhatsApp:whats,"Material solicitado":currentMaterial,_subject:'Novo lead do site: '+currentMaterial,_template:'table'})})
+      body:JSON.stringify({Nome:nome,"E-mail":email,WhatsApp:whats,"Interesse":"Receber o "+currentMaterial.toLowerCase(),"Origem":location.href,_subject:'Lead do site: Receber o '+currentMaterial.toLowerCase(),_template:'table'})})
     .then(function(r){ return r.json().then(function(j){return {ok:r.ok,j:j};}, function(){return {ok:r.ok,j:{}};}); })
     .then(function(res){ if(res.ok && String(res.j.success)!=='false'){ showSuccess(nome); } else { showError(); } })
     .catch(function(){ showError(); });
