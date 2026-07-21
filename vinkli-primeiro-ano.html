@@ -295,14 +295,17 @@
   .next-box p{color:var(--muted);margin-bottom:24px;font-size:16px}
 
   /* ---------- Rodapé (disclaimer da Dra. Letícia) ---------- */
-  footer{background:var(--ink);color:#E9E1D6;padding:46px 0 30px}
-  .foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:flex-start;margin-bottom:28px}
-  .foot-brand{font-family:'Fraunces',serif;font-size:20px;color:#fff}
-  .foot-brand small{display:block;font-family:'Nunito Sans',sans-serif;font-size:13px;color:#B7ADA0;font-weight:400;margin-top:6px;max-width:24em}
-  .foot-links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+  footer{background:var(--ink);color:#E9E1D6;padding:44px 0 30px;text-align:center}
+  .foot-back{display:inline-block;background:var(--rose);color:#fff;font-weight:700;font-size:14px;text-decoration:none;
+    padding:11px 24px;border-radius:100px;margin-bottom:22px;transition:background .2s ease}
+  .foot-back:hover{background:var(--rose-deep)}
+  .foot-brand{font-family:'Fraunces',serif;font-size:24px;color:#fff;margin-bottom:8px}
+  .foot-brand .dot{color:var(--rose-soft)}
+  .foot-tag{font-size:14px;color:#B7ADA0;max-width:26em;margin:0 auto 16px}
+  .foot-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;font-size:14px;margin-bottom:22px}
   .foot-links a{color:#C9BFB2;text-decoration:none}
   .foot-links a:hover{color:#fff}
-  .disclaimer{border-top:1px solid #3A322C;padding-top:20px;font-size:12px;line-height:1.6;color:#9C9285}
+  .disclaimer{border-top:1px solid #3A322C;padding-top:20px;font-size:12px;line-height:1.6;color:#9C9285;max-width:660px;margin:0 auto}
   .disclaimer strong{color:#C9BFB2}
 
   /* ---------- WhatsApp float ---------- */
@@ -331,7 +334,6 @@
     .hero{padding:36px 0 10px}
     .hero-card-stage{margin-top:8px}
     .steps{grid-template-columns:1fr}
-    .foot-top{flex-direction:column}
   }
   @media (max-width:400px){
     .week-grid{grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}
@@ -491,17 +493,13 @@
 
 <footer>
   <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-brand">
-        Dra. Letícia Freitas.
-        <small>Cuidado pediátrico que nutre o desenvolvimento de cada criança.</small>
-      </div>
-      <div class="foot-links">
-        <a href="https://www.draleticiafreitas.com.br/" rel="noopener">Voltar ao site</a>
-        <a href="https://www.instagram.com/leticiafreitaspediatra/" target="_blank" rel="noopener noreferrer">@leticiafreitaspediatra</a>
-        <a href="https://www.draleticiafreitas.com.br/privacidade.html" rel="noopener">Política de Privacidade</a>
-        <a href="https://vinkli.com.br" target="_blank" rel="noopener noreferrer">Vinkli</a>
-      </div>
+    <a class="foot-back" href="https://www.draleticiafreitas.com.br/">← Voltar ao site</a>
+    <div class="foot-brand">Dra. Letícia Freitas<span class="dot">.</span></div>
+    <p class="foot-tag">Cuidado pediátrico que nutre o desenvolvimento de cada criança.</p>
+    <div class="foot-links">
+      <a href="https://www.instagram.com/leticiafreitaspediatra/" target="_blank" rel="noopener noreferrer">@leticiafreitaspediatra</a>
+      <a href="https://www.draleticiafreitas.com.br/privacidade.html" rel="noopener">Política de Privacidade</a>
+      <a href="https://vinkli.com.br" target="_blank" rel="noopener noreferrer">Vinkli</a>
     </div>
     <div class="disclaimer">
       <strong>Conteúdo revisado pela Dra. Letícia Freitas</strong> · Pediatra em Belo Horizonte · CRM-MG 78.123 · RQE 57.967 · Atualizado em julho de 2026.<br>
